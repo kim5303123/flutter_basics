@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class infoWidgetExample extends StatelessWidget {
-  const infoWidgetExample({super.key});
+class InfoWidgetExample extends StatelessWidget {
+  const InfoWidgetExample({super.key});
 
   @override
   Widget build(BuildContext context) {
