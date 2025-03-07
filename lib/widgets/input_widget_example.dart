@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-// stful 자동생성
 class InputWidgetExample extends StatefulWidget {
   const InputWidgetExample({super.key});
 
@@ -20,43 +19,8 @@ class _InputWidgetExampleState extends State<InputWidgetExample> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Text(
-          'Image Widget: from Assets',
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-        ),
-        Tooltip(
-          message: "안드로이드 로고입니다",
-          child: Image.asset('assets/images/android.png'),
-        ),
-        SizedBox(height: 20),
-        Text(
-          "Image Widget from Network",
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-        ),
-        Tooltip(
-          message: "네트워크로부터 불러온 이미지",
-          child: Image.network(
-            "https://img1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/cnoC/image/L5UV5eFyTS1Ar4MTDDOd_Ynrzt4",
-            width: 200,
-          ),
-        ),
-        SizedBox(height: 20),
-        Text(
-          "Icon Widgets",
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            Icon(Icons.favorite, color: Colors.red),
-            Icon(Icons.mail, color: Colors.blue),
-            Icon(Icons.settings, color: Colors.green),
-          ],
-        ),
-      ],
-    );
+    //  입력 양식이 키보드에 가리는 것을 방지하기 위해
+    //  SingleChildScrollView로 감싼다.
     return SingleChildScrollView(
       child: Column(
         children: <Widget>[
@@ -80,7 +44,7 @@ class _InputWidgetExampleState extends State<InputWidgetExample> {
                   });
                 },
               ),
-              Text("Check Me!!"),
+              Text("Check Me!"),
             ],
           ),
           SizedBox(height: 20),
@@ -91,7 +55,7 @@ class _InputWidgetExampleState extends State<InputWidgetExample> {
                 groupValue: _radioValue,
                 onChanged: (int? value) {
                   setState(() {
-                    _radioValue = value ?? 0;
+                    _radioValue = value ?? 0; //  value가 null이면 0으로 설정
                   });
                 },
               ),
@@ -101,7 +65,7 @@ class _InputWidgetExampleState extends State<InputWidgetExample> {
                 groupValue: _radioValue,
                 onChanged: (int? value) {
                   setState(() {
-                    _radioValue = value ?? 1;
+                    _radioValue = value ?? 1; //  value가 null이면 1로 설정
                   });
                 },
               ),
