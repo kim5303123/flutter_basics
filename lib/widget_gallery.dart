@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_basics/widgets/input_widget_example.dart';
+import 'package:flutter_basics/widgets/info_widget_example.dart';
+import 'package:flutter_basics/widgets/animation_widget_example.dart';
 
 class WidgetGallery extends StatefulWidget {
   final String title;
@@ -13,6 +16,13 @@ class _WidgetGalleryState extends State<WidgetGallery> {
   //  상태 변수
   int _currentPageIndex = 0; //  선택된 탭 정보 상태
 
+  //  탭 선택시 표시할 페이지 리스트
+  final List<Widget> _pages = [
+    InputWidgetExample(),
+    InfoWidgetExample(),
+    AnimationWidgetExample(),
+  ];
+
   @override
   Widget build(BuildContext context) {
     // return const Placeholder();
@@ -21,12 +31,13 @@ class _WidgetGalleryState extends State<WidgetGallery> {
         title: Text(widget.title),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
-      body: Center(
-        child: Text(
-          "위젯 갤러리",
-          style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-        ),
-      ),
+      body: IndexedStack(index: _currentPageIndex, children: _pages),
+      // body: Center(
+      //   child: Text(
+      //     "위젯 갤러리",
+      //     style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+      //   ),
+      // ),
       bottomNavigationBar: NavigationBar(
         selectedIndex: _currentPageIndex,
         onDestinationSelected: (int index) {
