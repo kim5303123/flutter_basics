@@ -30,6 +30,31 @@ class _InputWidgetExampleState extends State<InputWidgetExample> {
           message: "안드로이드 로고입니다",
           child: Image.asset('assets/images/android.png'),
         ),
+        SizedBox(height: 20),
+        Text(
+          "Image Widget from Network",
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        ),
+        Tooltip(
+          message: "네트워크로부터 불러온 이미지",
+          child: Image.network(
+            "https://img1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/cnoC/image/L5UV5eFyTS1Ar4MTDDOd_Ynrzt4",
+            width: 200,
+          ),
+        ),
+        SizedBox(height: 20),
+        Text(
+          "Icon Widgets",
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            Icon(Icons.favorite, color: Colors.red),
+            Icon(Icons.mail, color: Colors.blue),
+            Icon(Icons.settings, color: Colors.green),
+          ],
+        ),
       ],
     );
     return SingleChildScrollView(
